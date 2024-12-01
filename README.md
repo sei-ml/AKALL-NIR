@@ -1,6 +1,6 @@
-# AKALL NIR & RGB Reflectance Analysis
+## AKALL NIR & RGB Reflectance Analysis
 
-## Overview
+### Overview
 This project provides a set of image processing tools for analyzing RGB and Near-Infrared (NIR) data captured with depth cameras. The analyses involve extracting and processing different color channels from RGB images and NIR images for further reflectance analysis.
 
 - The `convert` command below is part of ImageMagick, a powerful tool for image manipulation. Make sure you have it installed before running the commands.
