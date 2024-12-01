@@ -2,6 +2,9 @@ import cv2
 import numpy as np
 import argparse
 import json
+import csv
+import os
+from datetime import datetime
 
 circles = []
 
@@ -46,6 +49,11 @@ def main():
         "R": args.red,
         "NIR": args.nir
     }
+
+    csv_data = []
+    reflectance_data = {}
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    csv_filename = f'reflectance_data_{timestamp}.csv'
 
     for channel, image_path in images.items():
         if channel not in calibration_data:
@@ -104,11 +112,27 @@ def main():
             (sample / calibration_intensity) * calibration_reflectance for sample in sample_intensities
         ]
 
-        print(f"Reflectance percentages for each sample (relative to selected calibration) for channel {channel}:")
+        sample_names = [calibration_data['samples'][f"Sample {i + 1}"]['name'] for i in range(args.points)]
         for i, reflection in enumerate(reflection_percentages, start=1):
-            print(f"Sample {i}: {reflection:.2f}%")
+            sample_name = sample_names[i - 1]
+            if sample_name not in reflectance_data:
+                reflectance_data[sample_name] = {
+                    "reflectances": [None] * 4,  # Placeholder for B, G, R, NIR values
+                    "channels": ["B", "G", "R", "NIR"]
+                }
+            index = reflectance_data[sample_name]["channels"].index(channel)
+            reflectance_data[sample_name]["reflectances"][index] = reflection
+            csv_data.append([channel, f"Sample {i}", reflection])
 
         circles.clear()
+
+    # Write data to CSV file, creating it if it doesn't exist
+    with open(csv_filename, 'w', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        csv_writer.writerow(["Channel", "Sample", "Reflectance (%)"])
+        csv_writer.writerows(csv_data)
+
+    print(f"Reflectance data saved to {csv_filename}")
 
 if __name__ == "__main__":
     main()

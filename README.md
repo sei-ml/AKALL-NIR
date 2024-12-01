@@ -3,7 +3,7 @@
 ### Overview
 This research provides a set of image processing tools for analyzing RGB and Near-Infrared (NIR) data captured with depth cameras. The analyses involve extracting and processing different color channels from RGB images and NIR images for further reflectance analysis.
 
-- The `convert` command below is part of ImageMagick, a powerful tool for image manipulation. Make sure you have it installed before running the commands.
+The `convert` command below is part of ImageMagick, a powerful tool for image manipulation. Make sure you have it installed before running the commands.
 ```bash
 sudo apt-get install imagemagick
 ```
@@ -29,7 +29,11 @@ convert -size 640x576 -depth 16 -endian LSB -define quantum:format=unsigned -def
 
 ### Relative Reflectance Measurmment 
 #### Scene Calibration
-To calibrate the Blue, Green and Red reflectance measurment in a given scene, run the following command on a scene that contains a Color Checker (Macbeth) and Reflectance targets. Update the calibration.json file with the scenes (R, G, B, and NIR) reflectance values.
+To calibrate the Blue, Green and Red reflectance measurment in a given scene, run the following command on a scene that contains a Color Checker (Macbeth) and Reflectance targets. Update the calibration.json file with the scenes (R, G, B, and NIR) reflectance values. Run the command below to compute the relative reflectance of the Red, Blue and Green marks in NIR image.
+
+```bash
+python3 proc.py images/NIR.pgm --channel NIR --points 3
+```
 
 Example reflectance calibration.json file
 ```
@@ -41,13 +45,13 @@ Example reflectance calibration.json file
 }
 
 ```
-
-```bash
-python3 proc.py images/NIR.pgm --channel NIR --points 3
-```
-
-Run the following to compute the relative reflectance
+#### Scene Processing
+Run the following to compute the relative reflectance.
 ```bash
 python3 proc_all.py --blue blue.jpeg --green green.jpeg --red red.jpeg --nir nir.pgm --points 9 --calibration calibration.json
 ```
 
+Example command:
+```bash
+python3 proc_all.py --blue images/B_1731624458C5MJPG3072P.jpeg --green images/G_1731624458C5MJPG3072P.jpeg --red images/R_1731624458C5MJPG3072P.jpeg --nir images/1731624411IR5640NFOV_UNBINNED.pgm --points 9 --calibration calibration.json
+```

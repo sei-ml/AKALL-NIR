@@ -2,5 +2,52 @@
     "B": 12.21,
     "G": 27.54,
     "R": 40.88,
-    "NIR": 30.0
+    "NIR": 30.0,
+    "samples": {
+        "Sample 1": {
+            "name": "Basalt",
+            "color": "darkred",
+            "linestyle": "-"
+        },
+        "Sample 2": {
+            "name": "NU-LHT-2M",
+            "color": "black",
+            "linestyle": "--"
+        },
+        "Sample 3": {
+            "name": "JSC-1A",
+            "color": "black",
+            "linestyle": ":"
+        },
+        "Sample 4": {
+            "name": "LSM1-H-NACL",
+            "color": "lightgray",
+            "linestyle": "-"
+        },
+        "Sample 5": {
+            "name": "LSM1-M-NACL",
+            "color": "lightgray",
+            "linestyle": "--"
+        },
+        "Sample 6": {
+            "name": "LSM1-L-NACL",
+            "color": "lightgray",
+            "linestyle": ":"
+        },
+        "Sample 7": {
+            "name": "LH3M-NACL",
+            "color": "gray",
+            "linestyle": "-."
+        },
+        "Sample 8": {
+            "name": "Granite",
+            "color": "darkgray",
+            "linestyle": "--"
+        },
+        "Sample 9": {
+            "name": "Olivine",
+            "color": "green",
+            "linestyle": "-"
+        }
+    }
 }
