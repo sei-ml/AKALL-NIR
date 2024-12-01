@@ -1,0 +1,64 @@
+Blue
+Sample 1: 3.40%
+Sample 2: 24.18%
+Sample 3: 6.56%
+Sample 4: 16.35%
+Sample 5: 15.38%
+Sample 6: 14.80%
+Sample 7: 23.64%
+Sample 8: 24.28%
+Sample 9: 13.34%
+
+Green
+Sample 1: 3.88%
+Sample 2: 27.83%
+Sample 3: 8.20%
+Sample 4: 19.88%
+Sample 5: 19.01%
+Sample 6: 18.57%
+Sample 7: 29.04%
+Sample 8: 29.44%
+Sample 9: 25.65%
+
+Red
+Sample 1: 5.46%
+Sample 2: 25.91%
+Sample 3: 8.00%
+Sample 4: 20.75%
+Sample 5: 20.05%
+Sample 6: 18.97%
+Sample 7: 27.15%
+Sample 8: 27.21%
+Sample 9: 23.23%
+
+NIR
+Sample 1: 7.84%
+Sample 2: 31.83%
+Sample 3: 10.17%
+Sample 4: 24.05%
+Sample 5: 21.55%
+Sample 6: 21.77%
+Sample 7: 20.28%
+Sample 8: 29.36%
+Sample 9: 7.61%
+
+Sample Names
+Sample 1: Basalt
+Sample 2: NU-LHT-2M
+Sample 3: JSC-1A
+Sample 4: LSM1-H-NACL
+Sample 5: LSM1-M-NACL
+Sample 6: LSM1-L-NACL
+Sample 7: LH3M-NACL
+Sample 8: Granite
+Sample 9: Olivine
+
+Basalt: Copper red
+NU-LHT-2M: Dotted black
+JSC-1A: Solid black
+LSM1-H-NACL: Light gray
+LSM1-M-NACL: Silver (medium gray)
+LSM1-L-NACL: Dark gray
+LH3M-NACL: Neutral gray
+Granite: Granite gray
+Olivine: Green
