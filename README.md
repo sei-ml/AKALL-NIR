@@ -62,4 +62,4 @@ The data to plot is saved as reflectance_data_timestamp.cvs. Execute the followi
 python3 plotter.py reflectance_data_timestamp.csv --meta calibration.json
 ```
 
-![Relative Reflectance Plots](docs/Figure_1.png)
+![Relative Reflectance Plots](doc/Figure_1.png)
