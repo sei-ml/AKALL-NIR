@@ -12,7 +12,7 @@ sudo apt-get install imagemagick
 The following commands use ImageMagick to separate the different color channels from an RGB image and process the NIR image.
 
 ### Extracting RGB Channels
-At first, extract the Bluen (450nm), Green (550nm), and Red (650nm) channels from an RGB image and perform an auto-level adjustment, use the following commands:
+At first, extract the Blue (450nm), Green (550nm), and Red (650nm) channels from an RGB image and perform an auto-level adjustment, use the following commands:
 
 ```bash
 convert RGB.jpeg -colorspace RGB -channel B -separate -auto-level B.jpeg
