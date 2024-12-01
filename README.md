@@ -10,6 +10,11 @@ The `convert` command below is part of ImageMagick, a powerful tool for image ma
 sudo apt-get install imagemagick
 ```
 
+Install all required packages using `pip3`:
+
+```bash
+pip3 install pandas matplotlib opencv-python numpy
+
 ## RGB + NIR Analysis Commands
 The following commands use ImageMagick to separate the different color channels from an RGB image and process the NIR image.
 
