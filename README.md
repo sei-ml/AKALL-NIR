@@ -1,3 +1,4 @@
+![NIR RGB Reflectance Experiment](doc/RGB_NIR_EXP.png)
 ## AKALL NIR & RGB Reflectance Analysis
 
 ### Overview
