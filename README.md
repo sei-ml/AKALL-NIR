@@ -1,4 +1,4 @@
-![NIR RGB Reflectance Experiment](doc/RGB_NIR_EXP.png)
+<img src="doc/RGB_NIR_EXP.png" alt="NIR RGB Reflectance Experiment" width="60%">
 ## AKALL NIR & RGB Reflectance Analysis
 
 ### Overview
