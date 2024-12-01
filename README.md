@@ -26,3 +26,11 @@ To process the NIR (850nm) image, convert the raw data into a PGM format and nor
 ```bash
 convert -size 640x576 -depth 16 -endian LSB -define quantum:format=unsigned -define quantum:separate -depth 16 gray:NIR.raw -normalize NIR.pgm
 ```
+
+### Relative Reflectance Measurmment 
+```bash
+python3 process.py images/B.jpeg --channel B --points 9
+python3 process.py images/G.jpeg --channel G --points 9
+python3 process.py images/R.jpeg --channel R --points 9  
+python3 process.py images/NIR.pgm --channel NIR --points 9
+```
