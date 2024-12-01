@@ -28,9 +28,26 @@ convert -size 640x576 -depth 16 -endian LSB -define quantum:format=unsigned -def
 ```
 
 ### Relative Reflectance Measurmment 
-```bash
-python3 process.py images/B.jpeg --channel B --points 9
-python3 process.py images/G.jpeg --channel G --points 9
-python3 process.py images/R.jpeg --channel R --points 9  
-python3 process.py images/NIR.pgm --channel NIR --points 9
+#### Scene Calibration
+To calibrate the Blue, Green and Red reflectance measurment in a given scene, run the following command on a scene that contains a Color Checker (Macbeth) and Reflectance targets. Update the calibration.json file with the scenes (R, G, B, and NIR) reflectance values.
+
+Example reflectance calibration.json file
 ```
+{
+    "B": 12.21,
+    "G": 27.54,
+    "R": 40.88,
+    "NIR": 30.0
+}
+
+```
+
+```bash
+python3 proc.py images/NIR.pgm --channel NIR --points 3
+```
+
+Run the following to compute the relative reflectance
+```bash
+python3 proc_all.py --blue blue.jpeg --green green.jpeg --red red.jpeg --nir nir.pgm --points 9 --calibration calibration.json
+```
+

@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import argparse
+import json
 
 circles = []
 
@@ -33,6 +34,16 @@ def main():
     parser.add_argument("--points", type=int, default=9, help="Number of sample points to select.")
     args = parser.parse_args()
 
+    with open('calibration.json', 'r') as file:
+        calibration_data = json.load(file)
+
+    if args.channel not in calibration_data:
+        print("Invalid channel specified. Exiting.")
+        return
+
+    calibration_reflectance = calibration_data[args.channel]
+    print(f"Calibration type: {args.channel} ({calibration_reflectance}%)")
+
     image = cv2.imread(args.image_path, cv2.IMREAD_GRAYSCALE)
     
     if image is None:
@@ -40,24 +51,6 @@ def main():
         return
 
     resized_image = resize_to_720p(image)
-
-    #Relative B, G, R Reflectance computed from NIR images.
-    calibration_reflectance = None
-    if args.channel == "B":
-        calibration_reflectance = 12.21
-        print("Calibration type: Blue (12.21%)")
-    elif args.channel == "G":
-        calibration_reflectance = 27.54
-        print("Calibration type: Green (27.54%)")
-    elif args.channel == "R":
-        calibration_reflectance = 40.88
-        print("Calibration type: Red (40.88%)")
-    elif args.channel == "NIR":
-        calibration_reflectance = 30.0
-        print("Calibration type: NIR (30%)")
-    else:
-        print("Invalid channel specified. Exiting.")
-        return
 
     clone = resized_image.copy()
     cv2.namedWindow("Select Circles")
