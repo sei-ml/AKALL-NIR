@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import argparse
 
 circles = []
 
@@ -26,8 +27,13 @@ def resize_to_720p(image):
     return cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_AREA)
 
 def main():
-    image_path = "R_1731624458C5MJPG3072P.jpeg"
-    image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+    parser = argparse.ArgumentParser(description="Process an image for reflectance analysis.")
+    parser.add_argument("image_path", type=str, help="Path to the image file.")
+    parser.add_argument("--channel", type=str, choices=["R", "G", "B", "NIR"], required=True, help="Color channel to analyze.")
+    parser.add_argument("--points", type=int, default=9, help="Number of sample points to select.")
+    args = parser.parse_args()
+
+    image = cv2.imread(args.image_path, cv2.IMREAD_GRAYSCALE)
     
     if image is None:
         print("Error: Unable to load image. Check the file path.")
@@ -35,24 +41,22 @@ def main():
 
     resized_image = resize_to_720p(image)
 
-    print("Select the calibration type:")
-    print("1. Blue (8.8%)")
-    print("2. Green (35.6%)")
-    print("3. Red (13.3%)")
-    print("4. NIR (30%)")
-    calibration_choice = input("Enter 1, 2, 3, or 4: ")
-
+    #Relative B, G, R Reflectance computed from NIR images.
     calibration_reflectance = None
-    if calibration_choice == "1":
-        calibration_reflectance = 23.7
-    elif calibration_choice == "2":
-        calibration_reflectance = 25.5
-    elif calibration_choice == "3":
-        calibration_reflectance = 29.9
-    elif calibration_choice == "4":
+    if args.channel == "B":
+        calibration_reflectance = 12.21
+        print("Calibration type: Blue (12.21%)")
+    elif args.channel == "G":
+        calibration_reflectance = 27.54
+        print("Calibration type: Green (27.54%)")
+    elif args.channel == "R":
+        calibration_reflectance = 40.88
+        print("Calibration type: Red (40.88%)")
+    elif args.channel == "NIR":
         calibration_reflectance = 30.0
+        print("Calibration type: NIR (30%)")
     else:
-        print("Invalid choice. Exiting.")
+        print("Invalid channel specified. Exiting.")
         return
 
     clone = resized_image.copy()
@@ -60,7 +64,7 @@ def main():
     cv2.setMouseCallback("Select Circles", draw_circle)
 
     print("Step 1: Click to encircle the calibration target.")
-    print("Step 2: Click to encircle the 9 sample regions after the calibration target.")
+    print(f"Step 2: Click to encircle the {args.points} sample regions after the calibration target.")
     print("Press 'q' when done.")
 
     while True:
@@ -75,8 +79,8 @@ def main():
 
     cv2.destroyAllWindows()
 
-    if len(circles) < 10:
-        print("Error: At least one calibration target and 9 sample circles are required.")
+    if len(circles) < (args.points + 1):
+        print(f"Error: At least one calibration target and {args.points} sample circles are required.")
         return
 
     calibration_center = circles[0]

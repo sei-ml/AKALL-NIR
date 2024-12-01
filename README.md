@@ -1,7 +1,7 @@
 ## AKALL NIR & RGB Reflectance Analysis
 
 ### Overview
-This project provides a set of image processing tools for analyzing RGB and Near-Infrared (NIR) data captured with depth cameras. The analyses involve extracting and processing different color channels from RGB images and NIR images for further reflectance analysis.
+This research provides a set of image processing tools for analyzing RGB and Near-Infrared (NIR) data captured with depth cameras. The analyses involve extracting and processing different color channels from RGB images and NIR images for further reflectance analysis.
 
 - The `convert` command below is part of ImageMagick, a powerful tool for image manipulation. Make sure you have it installed before running the commands.
 ```bash
@@ -26,5 +26,3 @@ To process the NIR (850nm) image, convert the raw data into a PGM format and nor
 ```bash
 convert -size 640x576 -depth 16 -endian LSB -define quantum:format=unsigned -define quantum:separate -depth 16 gray:NIR.raw -normalize NIR.pgm
 ```
-
-
