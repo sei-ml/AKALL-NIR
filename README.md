@@ -1,6 +1,6 @@
-<img src="doc/RGB_NIR_EXP.png" alt="NIR RGB Reflectance Experiment" width="60%">
-
 ## AKALL NIR & RGB Reflectance Analysis
+
+<img src="doc/RGB_NIR_EXP.png" alt="NIR RGB Reflectance Experiment" width="60%">
 
 ### Overview
 This research provides a set of image processing tools for analyzing RGB and Near-Infrared (NIR) data captured with depth cameras. The analyses involve extracting and processing different color channels from RGB images and NIR images for further reflectance analysis.
