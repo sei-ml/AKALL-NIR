@@ -27,6 +27,8 @@ Install all required packages using `pip3`:
 
 ```bash
 pip3 install pandas matplotlib opencv-python numpy
+```
+
 
 ### Processing NIR Image
 To process the NIR (850nm) image, convert the raw data into a PGM format and normalize the image:
