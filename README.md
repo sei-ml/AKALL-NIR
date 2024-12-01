@@ -55,3 +55,11 @@ Example command:
 ```bash
 python3 proc_all.py --blue images/B_1731624458C5MJPG3072P.jpeg --green images/G_1731624458C5MJPG3072P.jpeg --red images/R_1731624458C5MJPG3072P.jpeg --nir images/1731624411IR5640NFOV_UNBINNED.pgm --points 9 --calibration calibration.json
 ```
+
+#### Plotting data
+The data to plot is saved as reflectance_data_timestamp.cvs. Execute the following command to plot the relative reflectance measurments per sample registered.
+```bash
+python3 plotter.py reflectance_data_timestamp.csv --meta calibration.json
+```
+
+![Relative Reflectance Plots](docs/Figure_1.png)
