@@ -1,4 +1,4 @@
-# AKALL NIR Project
+# AKALL NIR & RGB Reflectance Analysis
 
 ## Overview
 This project provides a set of image processing tools for analyzing RGB and Near-Infrared (NIR) data captured with depth cameras. The analyses involve extracting and processing different color channels from RGB images and NIR images for further reflectance analysis.
