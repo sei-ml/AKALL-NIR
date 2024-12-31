@@ -1,7 +1,7 @@
 {
-    "B": 12.21,
-    "G": 27.54,
-    "R": 40.88,
+    "B": 23.22,
+    "G": 24.99,
+    "R": 27.99,
     "NIR": 30.0,
     "samples": {
         "Sample 1": {
@@ -20,22 +20,22 @@
             "linestyle": ":"
         },
         "Sample 4": {
-            "name": "LSM1-H-NACL",
+            "name": "LSM1-HIGH-NaCl",
             "color": "lightgray",
             "linestyle": "-"
         },
         "Sample 5": {
-            "name": "LSM1-M-NACL",
+            "name": "LSM1-MED-NaCl",
             "color": "lightgray",
             "linestyle": "--"
         },
         "Sample 6": {
-            "name": "LSM1-L-NACL",
+            "name": "LSM1-LOW-NaCl",
             "color": "lightgray",
             "linestyle": ":"
         },
         "Sample 7": {
-            "name": "LH3M-NACL",
+            "name": "LSM1-No-NaCl",
             "color": "gray",
             "linestyle": "-."
         },

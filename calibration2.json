@@ -1,0 +1,28 @@
+{
+    "B": 23.22,
+    "G": 24.99,
+    "R": 27.99,
+    "NIR": 30.0,
+    "samples": {
+        "Sample 4": {
+            "name": "LSM1-HIGH-NaCl",
+            "color": "#777777",
+            "linestyle": "-"
+        },
+        "Sample 5": {
+            "name": "LSM1-MED-NaCl",
+            "color": "#555555",
+            "linestyle": "--"
+        },
+        "Sample 6": {
+            "name": "LSM1-LOW-NaCl",
+            "color": "#333333",
+            "linestyle": ":"
+        },
+        "Sample 7": {
+            "name": "LSM1-No-NaCl",
+            "color": "#111111",
+            "linestyle": "-."
+        }
+    }
+}
